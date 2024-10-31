@@ -1,0 +1,23 @@
+generator client {
+  provider = "prisma-client-js" // Generer Prisma Client
+}
+
+datasource db {
+  provider = "sqlite" // Datasource type
+  url      = env("DATABASE_URL") // URL for databasen fra miljøvariabel
+}
+
+model Project {
+  id          Int    @id @default(autoincrement()) // ID med auto-increment
+  title       String // Tittel på prosjektet
+  description String // Beskrivelse av prosjektet
+  category    String // Kategori
+  public      Boolean // Offentlig eller ikke
+  tags        Tag[]  @relation("ProjectTags") // Relasjon til Tag-modellen
+}
+
+model Tag {
+  id       Int      @id @default(autoincrement()) // ID med auto-increment
+  name     String   @unique // Unik navn
+  projects Project[] @relation("ProjectTags") // Relasjon til Project-modellen
+}

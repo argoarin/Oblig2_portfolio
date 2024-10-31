@@ -1,42 +1,184 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+:root {
+  --primary-bg: #f5f5f5;
+  --secondary-bg: #e0e7ff;
+  --dark-bg: #64748b;
+  --header-bg: #3b82f6;
+  --text-color: #333;
+  --header-text: #fff;
+  --button-bg: #3b82f6;
+  --button-hover-bg: #2563eb;
+  --button-text: #fff;
+  --border-radius: 8px;
+  --spacing: 16px;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--primary-bg);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-gap: var(--spacing);
+  padding: var(--spacing);
+}
+
+header {
+  grid-column: 1 / -1;
+  background-color: var(--header-bg);
+  color: var(--header-text);
+  text-align: center;
+  padding: var(--spacing);
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: var(--border-radius);
+}
+
+
+form {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: var(--spacing);
+  padding: var(--spacing);
+  background-color: white;
+  border-radius: var(--border-radius);
+}
+
+form input, form textarea {
+  padding: var(--spacing);
+  border-radius: var(--border-radius);
+  border: 1px solid #ccc;
+}
+
+form button {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  padding: var(--spacing);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+form button:hover {
+  background-color: var(--button-hover-bg);
+}
+
+.projects-and-contact {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: var(--spacing);
+}
+
+.contact-container {
+  background-color: white;
+  padding: var(--spacing);
+  border-radius: var(--border-radius);
+}
+
+.contact-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-container input, .contact-container textarea {
+  margin-bottom: var(--spacing);
+  padding: var(--spacing);
+  border-radius: var(--border-radius);
+  border: 1px solid #ccc;
+}
+
+
+.projects-container {
+  background-color: var(--secondary-bg);
+  padding: var(--spacing);
+  border-radius: var(--border-radius);
+}
+
+.projects-container h2 {
+  text-align: center;
+  margin-bottom: var(--spacing);
+}
+
+.project-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing);
+  background-color: white;
+  border-radius: var(--border-radius);
+  margin-bottom: var(--spacing);
+  transition: background-color 0.3s;
+}
+
+.project-item:hover {
+  background-color: #e2e8f0;
+}
+
+.project-item button {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  padding: var(--spacing);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+}
+
+.project-item button:hover {
+  background-color: var(--button-hover-bg);
+}
+
+.experiences-container {
+  background-color: var(--dark-bg);
+  padding: var(--spacing);
+  border-radius: var(--border-radius);
+}
+
+.experience-item {
+  background-color: white;
+  padding: var(--spacing);
+  border-radius: var(--border-radius);
+  margin-bottom: var(--spacing);
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.stats {
+  grid-column: span 2;
+  background-color: var(--secondary-bg);
+  padding: var(--spacing);
+  text-align: center;
+  border-radius: var(--border-radius);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; 
+}
+
+header {
+  background-color: var(--header-bg);
+  color: var(--header-text);
+  text-align: center;
+  padding: var(--spacing);
+}
+
+footer {
+  background-color: var(--dark-bg);
+  color: black;
+  text-align: center;
+  padding: var(--spacing);
+  margin-top: auto;
+}
+
+
+
+@media (max-width: 768px) {
+  main {
+    grid-template-columns: 1fr;
   }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }

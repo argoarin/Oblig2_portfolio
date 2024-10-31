@@ -1,14 +1,24 @@
 {
   "name": "backend",
+  "type": "module",
   "scripts": {
-    "dev": "tsx watch src/index.ts"
+    "dev": "tsx watch src/index.ts",
+    "seed": "tsx seed.ts"
   },
   "dependencies": {
     "@hono/node-server": "^1.13.1",
-    "hono": "^4.6.3"
+    "@prisma/client": "^5.21.1",
+    "express": "^4.21.1",
+    "hono": "^4.6.3",
+    "sqlite3": "^5.1.7",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@types/express": "^5.0.0",
     "@types/node": "^20.11.17",
-    "tsx": "^4.7.1"
+    "prisma": "^5.21.1",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.7.1",
+    "typescript": "^5.6.3"
   }
 }

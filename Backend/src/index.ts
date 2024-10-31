@@ -4,6 +4,11 @@ import { cors } from "hono/cors";
 import { readFile, writeFile } from "node:fs/promises";
 import { existsSync } from "fs";
 import path from "path";
+import { fileURLToPath } from "url";
+
+// Hent den nåværende filens bane
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = new Hono();
 app.use("/*", cors());

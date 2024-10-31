@@ -1,21 +1,15 @@
-type ProjectProps = {
-  title: string;
-  category: string;
-  index: number;
-  removeProject: (index: number) => void;
-};
-
-function Project({ title, category, index, removeProject }: ProjectProps) {
-  return (
-    <div>
-      <p>{title} - <strong>{category}</strong></p>
-      <button onClick={() => removeProject(index)}>Fjern</button>
-    </div>
-  );
-}
+import React from "react";
+import Project from "./Project"; // Importer Project komponenten
 
 type ProjectsProps = {
-  projects: { title: string, category: string }[];
+  projects: { 
+    title: string; 
+    description: string; // Beskrivelse legges til her
+    category: string; 
+    createdAt: string; 
+    public: boolean; 
+    tags: string[];
+  }[];
   removeProject: (index: number) => void;
 };
 
@@ -35,21 +29,17 @@ export default function Projects({ projects, removeProject }: ProjectsProps) {
           <Project
             key={index}
             title={project.title}
+            description={project.description} // Passerer beskrivelse
             category={project.category}
-            index={index}
-            removeProject={removeProject}
+            createdAt={project.createdAt} 
+            public={project.public}
+            tags={project.tags}
+            removeProject={() => removeProject(index)}
           />
         ))
       ) : (
-        <h3>Ingen prosjekter tilgjengelig</h3>
+        <p>Ingen prosjekter tilgjengelig.</p>
       )}
-
-      <h3>Totalt prosjekter per kategori:</h3>
-      <ul>
-        {Object.entries(countByCategory).map(([category, count], index) => (
-          <li key={index}>{category}: {count} prosjekter</li>
-        ))}
-      </ul>
     </div>
   );
 }
